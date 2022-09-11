@@ -4,6 +4,7 @@ import sys, os
 from pytube.cli import on_progress
 from rich.console import Console
 from rich.markdown import Markdown
+from rich.prompt import Prompt
 import time
 
 from rich.traceback import install
@@ -39,9 +40,9 @@ def downloading_video():
     console.print("\n[bold green]Download completed! :thumbs_up:\n")
     console.print(f"[bold cyan]The video is saved in:[/] [bold red]{to_path.upper()}" + "\\" + f"{YouTube(link).title}[/bold red]")
     time.sleep(0.2)
-    answer = console.input("[bold cyan]Do you want to download another video? Y/N \n")
-    
-    # Ask user if he wants to download another video
+     # Ask user if he wants to download another vide
+    answer = Prompt.ask("[bold cyan]Do you want to download another video?\n", choices=["Y", "N"])
+
     if answer == "Y" or answer == "y":
         downloading_video()
     else:
@@ -59,7 +60,7 @@ Steps to use the program:
 1. Enter the link of the video you want to download
 2. Enter the path where you want to save the video
 3. The video will be downloaded in the highest resolution
-4. Enjoy! :smiley:
+4. Enjoy! 😊
 """
 md = Markdown(MARKDOWN)
 console.print(md)
