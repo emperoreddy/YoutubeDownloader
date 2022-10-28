@@ -42,12 +42,10 @@ def downloading_video():
     # Downloading the video
     stream.download(to_path)
     console.print("\n[bold green]Download completed! :thumbs_up:\n")
-    console.print(
-        f"[bold cyan]The video is saved in:[/] [bold red]{to_path.upper()}" + "\\" + f"{YouTube(link).title}[/bold red]")
+    console.print(f"[bold cyan]The video is saved in:[/] [bold red]{to_path.upper()}" + "\\" + f"{YouTube(link).title}[/bold red]")
     time.sleep(0.2)
-    # Ask user if he wants to download another vide
-    answer = Prompt.ask(
-        "[bold cyan]Do you want to download another video?\n", choices=["y", "n"])
+     # Ask user if he wants to download another vide
+    answer = Prompt.ask("[bold cyan]Do you want to download another video?\n", choices=["Y", "N"])
 
     if answer == "Y" or answer == "y":
         downloading_video()
